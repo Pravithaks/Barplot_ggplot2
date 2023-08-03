@@ -23,7 +23,7 @@ gene_counts_df <- gene_counts_df[complete.cases(gene_counts_df), ]
 
 # Create the plot with all bars in grey color
 plot <- ggplot(gene_counts_df, aes(x = Chromosome, y = Count)) +
-  geom_bar(stat = "identity", fill = "#404040") +
+  geom_bar(stat = "identity", fill = "#5C5C5C") +
   theme_minimal() +
   labs(title = "Number of genes in each chromosome",
        x = "Chromosomes",  # Empty x-axis label to avoid duplication
