@@ -16,15 +16,10 @@ gene_counts <- table(data$chromosome)
 # Convert gene_counts to a data frame and order chromosomes consecutively
 chromosomes_ordered <- c(1:22, "X", "Y", "MT", "Un")
 gene_counts_df <- data.frame(Chromosome = names(gene_counts), Count = as.numeric(gene_counts))
-
-# Convert gene_counts to a data frame and order chromosomes consecutively
-chromosomes_ordered <- c(1:22, "X", "Y", "MT", "Un")
-gene_counts_df <- data.frame(Chromosome = names(gene_counts), Count = as.numeric(gene_counts))
 gene_counts_df$Chromosome <- factor(gene_counts_df$Chromosome, levels = chromosomes_ordered)
 
 # Remove rows with 'NA' in the Chromosome column
 gene_counts_df <- gene_counts_df[complete.cases(gene_counts_df), ]
-
 
 # Create the plot with all bars in grey color
 plot <- ggplot(gene_counts_df, aes(x = Chromosome, y = Count)) +
